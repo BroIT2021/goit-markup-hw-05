@@ -12,6 +12,7 @@
     --border-bottom: #ececec;
     --grey_06: rgba(255, 255, 255, 0.6);
     --icon-color: #AFB1B8;
+    --bg-blue_09: rgba(33, 150, 243, 0.9);
 
 }
 body{
@@ -100,6 +101,11 @@ img {
     color:var(--nav-color);
     
 }
+
+
+
+
+
 .list-header:not(:last-child){
     margin-right:50px;
 }
@@ -118,10 +124,39 @@ img {
     margin-left: 30px;
 }
 
-.cap-nav-link:hover,
+.cap-nav-link:hover{
+     color: var(--hover-color);
+    text-decoration: none;
+    position: relative;
+
+}
+.cap-nav-link:hover::after{
+ content: "";
+  width:100%;
+  height:4px;
+  background-color: var(--hover-color);
+  position:absolute;
+  left: 0;
+  bottom:0;
+  border-radius: 2px;
+  
+  
+  
+  
+  
+  
+
+}
+      
+      
+    
+
+      
 .cap-contact:hover {
     color: var(--hover-color);
 }
+
+
 .cap-cont{
     display: flex;
     align-items: center;
@@ -141,7 +176,7 @@ img {
 }
 .cap-contacts {
     display: flex;
-    margin-left: 305px;
+    margin-left:auto;
     
     
     
@@ -171,6 +206,7 @@ img {
     color: var(--nav-color);
 
 }
+
 .cap-contact{
  color: var(--contact-color);
 }
@@ -182,9 +218,7 @@ img {
 
     margin-right: 50px;
 }
-.current {
-color: var(--hover-color);
-}
+
 /*------*/
 
 
@@ -306,6 +340,9 @@ color: var(--hover-color);
 }
 .we-do-list-item{
      width: calc((100% - 30px * 3) / 2);
+     display: block;
+     position: relative;
+     
      
 }
 .we-do-list-item:not(:last-child){
@@ -313,6 +350,21 @@ color: var(--hover-color);
     display: block;
     
 }
+.list-title{
+    position:absolute;
+    background: rgba(47, 48, 58, 0.8);
+    bottom:0;
+    left:0 ;
+    width: 100%;
+    padding: 27px 15px;
+     color: var(--white-color);
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform:uppercase;
+  text-align: center;
+  
+}
+
 /*----*/
 
 /*our team*/
@@ -479,7 +531,39 @@ color: var(--hover-color);
 .port-pro{
     box-shadow:0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
       0px 2px 2px rgba(0, 0, 0, 0.12); 
+       
+     
 }
+/*.port-foto-all{
+      position: relative;
+      display:block;
+      overflow: hidden;
+  
+}
+
+.port-overlay-text:hover{
+     font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--white-color);
+}
+.port-overlay-card:hover{
+ position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 24px;
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-blue_09);
+
+  transform: translateY(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}*/
 
 .icon-header {
 display: inline-block;
@@ -643,7 +727,86 @@ margin-bottom: 50px;
  .icon-link:not(:last-child) {
      margin-right:30px;
 }
+
+ /* === modal === */
+ .backdrop{
+     position:fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.5);
+     opacity: 1;
+      transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+ .backdrop__hidden{
+  opacity: 0;
+  pointer-events: none;
+}
+.backdrop__hidden .modal{
+  transform: translate(-50%, -50%) scale(0.9);
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  min-height: 581px;
+  padding: 8px;
+
+  background: var(--white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal__close {
+  position: relative;
+  display: block;
+  margin: 0 0 0 auto;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--white-color);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.modal__close-btn::before,
+.modal__close-btn::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 6px;
+
+  width: 19px;
+  height: 2px;
+  background-color: black;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal__close-btn::before {
+  transform: rotate(45deg);
+}
+.modal__close-btn::after {
+  transform: rotate(-45deg);
+}
+.modal__close:hover{
+   border: 1px solid var(--white-color);
+   background-color: var(--bg-blue_09);
+}
+.modal__close:hover .modal__close-btn::before,
+.modal__close:hover .modal__close-btn::after{
+  background-color: var(--white-color);
+}
  
+
 
     
     

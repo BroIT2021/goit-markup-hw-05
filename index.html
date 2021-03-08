@@ -23,7 +23,7 @@
              <ul class="cap-nav-list">
                  <li class="list-header"><a class="cap-nav-link current" href="#">Студия</a></li>
                  <li class="list-header">
-                     <a class="cap-nav-link" href="./portfolio.html" >Портфолио</a>
+                     <a class="cap-nav-link current" href="./portfolio.html" >Портфолио</a>
                 </li>
                 <li class="list-header">
                     <a class=" cap-nav-link" href="#">Контакты</a>
@@ -55,7 +55,7 @@
                 Эффективные решения <br>
                 для вашего бизнеса
                  </h1>
-                 <button class="buy-serv">Заказать услугу</button>
+                 <button class="buy-serv" data-modal-open>Заказать услугу</button>
             </section>
 
             <!-- Featurs-->
@@ -118,12 +118,15 @@
                     <ul class="we-do-list">
                         <li class="we-do-list-item">
                             <img src="./images/img-1.jpg" alt="pic-1"> 
+                            <h3 class="list-title">десктопные приложения</h3>
                         </li>
                         <li class="we-do-list-item">
                             <img src="./images/img-2.jpg" alt="pic-2"> 
+                            <h3 class="list-title">мобильные приложения</h3>
                         </li>
                         <li class="we-do-list-item">
                             <img src="./images/img-3.jpg" alt="pic-3"> 
+                            <h3 class="list-title">дизайнерские решения</h3>
                         </li>
                       </ul>
                     </div>
@@ -319,5 +322,15 @@
                               
                              </div>
                             </footer>
+                            <!-- backdrop -->
+                            <div class="backdrop backdrop__hidden" data-modal>
+                                <div class="modal">
+                                    <button class="modal__close" data-modal-close>
+                                        <div class="modal__close-btn"></div>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <script src="./js/modal.js"></script>
                              </body>
                             </html>
