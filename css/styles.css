@@ -125,6 +125,7 @@ img {
     margin-left: 30px;
 }
 
+.cap-nav-link,
 .cap-nav-link:hover{
      color: var(--hover-color);
     text-decoration: none;
@@ -583,7 +584,6 @@ display: inline-block;
 .icon{
      background: #F5F4FA;
     border-radius: 4px;
-    width: 270px;
     height: 120px;
     margin-bottom: 30px;
     display:flex;
@@ -797,28 +797,28 @@ margin-bottom: 50px;
 .modal__close-btn::after {
   content: "";
   position: absolute;
-  top: 14px;
-  left: 6px;
+  top: 13px;
+  left: 8px;
 
-  width: 19px;
+  width: 14px;
   height: 2px;
   background-color: black;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal__close-btn::before {
   transform: rotate(45deg);
+  color: var(--bg-color);
 }
 .modal__close-btn::after {
   transform: rotate(-45deg);
 }
 .modal__close:hover{
-   border: 1px solid var(--white-color);
-   background-color: var(--bg-blue_09);
+   /*border: 1px solid var(--bg-blue_09);*/
    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
 }
 .modal__close:hover .modal__close-btn::before,
 .modal__close:hover .modal__close-btn::after{
-  background-color: var(--white-color);
+  background-color: var(--bg-blue_09);
   transition:  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),;
 }
  
